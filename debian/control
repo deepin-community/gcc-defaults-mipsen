@@ -1,0 +1,2020 @@
+Source: gcc-defaults-mipsen
+Section: devel
+Priority: standard
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Uploaders: Matthias Klose <doko@debian.org>, YunQiang Su <syq@debian.org>
+Standards-Version: 4.6.0
+Build-Depends: m4, debhelper (>= 11),
+  dpkg-dev (>= 1.17.11),
+  gcc-11-base (>= 11.2.0-7~),
+  lsb-release
+Vcs-Browser: https://salsa.debian.org/toolchain-team/gcc-defaults
+Vcs-Git: https://salsa.debian.org/toolchain-team/gcc-defaults.git
+
+Package: cpp-mips-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Section: interpreters
+Depends: cpp-${pv:cpp}-mips-linux-gnu ${reqv:cpp}, ${misc:Depends}
+Suggests: cpp-doc
+Description: GNU C preprocessor (cpp) for the mips architecture
+ The GNU C preprocessor is a macro processor that is used automatically
+ by the GNU C compiler to transform programs before actual compilation.
+ .
+ This package has been separated from gcc for the benefit of those who
+ require the preprocessor but not the cross-compiler for mips architecture.
+ .
+ This is a dependency package providing the default GNU C preprocessor
+ for the mips architecture.
+
+Package: gcc-mips-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips-linux-gnu (= ${version:cpp}),
+  gcc-${pv:gcc}-mips-linux-gnu ${reqv:gcc},
+  ${misc:Depends}
+Recommends: libc6-dev-mips-cross | libc-dev-mips-cross
+Suggests: make, manpages-dev, autoconf, automake, libtool, flex, bison, gdb-mips-linux-gnu, gcc-doc
+Description: GNU C compiler for the mips architecture
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This is a dependency package providing the default GNU C cross-compiler
+ for the mips architecture.
+
+Package: g++-mips-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips-linux-gnu (= ${version:cpp}),
+  gcc-mips-linux-gnu (= ${version:cpp}),
+  g++-${pv:gpp}-mips-linux-gnu ${reqv:gpp},
+  ${misc:Depends}
+Description: GNU C++ compiler for the mips architecture
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This is a dependency package providing the default GNU C++ cross-compiler
+ for the mips architecture.
+
+Package: gobjc-mips-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips-linux-gnu (>= ${version:cpp}),
+  gcc-mips-linux-gnu (>= ${version:cpp}),
+  gobjc-${pv:gobjc}-mips-linux-gnu ${reqv:gobjc},
+  ${misc:Depends}
+Description: GNU Objective-C compiler for the mips architecture
+ This is the GNU Objective-C compiler, which compiles Objective-C on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Objective-C
+ cross-compiler for the mips architecture.
+
+Package: gobjc++-mips-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips-linux-gnu (>= ${version:cpp}),
+  gcc-mips-linux-gnu (>= ${version:cpp}),
+  gobjc++-${pv:gobjcxx}-mips-linux-gnu ${reqv:gobjcxx},
+  ${misc:Depends}
+Recommends: g++-mips-linux-gnu (>= ${version:cpp}), gobjc-mips-linux-gnu (>= ${version:cpp})
+Description: GNU Objective-C++ compiler for the mips architecture
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Objective-C++
+ cross-compiler for the mips architecture.
+
+Package: gfortran-mips-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips-linux-gnu (= ${version:cpp}),
+  gcc-mips-linux-gnu (= ${version:gcc}),
+  gfortran-${pv:gfort}-mips-linux-gnu ${reqv:gfort},
+  ${misc:Depends}
+Suggests: gfortran-doc
+Description: GNU Fortran 95 compiler for the mips architecture
+ This is the GNU Fortran 95 compiler, which compiles Fortran 95 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Fortran 95
+ cross-compiler for the mips architecture.
+
+Package: gccgo-mips-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips-linux-gnu (>= ${version:cpp}),
+  g++-mips-linux-gnu (>= ${version:gcc}),
+  gccgo-${pv:ggo}-mips-linux-gnu ${reqv:ggo},
+  ${misc:Depends}
+Suggests: gccgo-doc
+Description: Go compiler (based on GCC) for the mips architecture
+ This is the GNU Go compiler, which compiles Go on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Go cross-compiler
+ for the mips architecture.
+
+Package: gdc-mips-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips-linux-gnu (>= ${version:cpp}),
+  gdc-${pv:gdc}-mips-linux-gnu ${reqv:gdc},
+  ${misc:Depends}
+Description: GNU D compiler (based on GCC) for the mips architecture
+ This is the GNU D compiler, which compiles D on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU D cross-compiler
+ for the mips architecture.
+
+Package: gm2-mips-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips-linux-gnu (>= ${version:cpp}),
+  gm2-${pv:gm2}-mips-linux-gnu ${reqv:gm2},
+  ${misc:Depends}
+Description: GNU Modula-2 compiler (based on GCC) for the mips architecture
+ This is the GNU Modula-2 compiler, which compiles Modula-2 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Modula-2 cross-compiler
+ for the mips architecture.
+
+Package: gcc-multilib-mips-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mips-linux-gnu (= ${version:cpp}),
+  gcc-mips-linux-gnu (= ${version:gcc}),
+  gcc-${pv:gcc}-multilib-mips-linux-gnu ${reqv:gcc},
+  ${misc:Depends}
+Recommends: libc6-dev-mips-cross | libc-dev-mips-cross
+Suggests: make, manpages-dev, autoconf, automake, libtool, flex, bison, gdb-mips-linux-gnu, gcc-doc
+Description: GNU C compiler for the mips architecture
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This is a dependency package providing the default GNU C cross-compiler
+ for the mips architecture.
+
+Package: g++-multilib-mips-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mips-linux-gnu (= ${version:cpp}),
+  g++-mips-linux-gnu (= ${version:gpp}),
+  gcc-multilib-mips-linux-gnu (= ${version:gcc}),
+  g++-${pv:gpp}-multilib-mips-linux-gnu ${reqv:gpp},
+  ${misc:Depends}
+Description: GNU C++ compiler for the mips architecture
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This is a dependency package providing the default GNU C++
+ cross-compiler for the mips architecture.
+
+Package: gobjc-multilib-mips-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mips-linux-gnu (>= ${version:cpp}),
+  gobjc-mips-linux-gnu (>= ${version:gobjc}),
+  gcc-multilib-mips-linux-gnu (>= ${version:cpp}),
+  gobjc-${pv:gobjc}-multilib-mips-linux-gnu ${reqv:gobjc},
+  ${misc:Depends}
+Description: GNU Objective-C compiler for the mips architecture
+ This is the GNU Objective-C compiler, which compiles Objective-C on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Objective-C
+ cross-compiler for the mips architecture.
+
+Package: gobjc++-multilib-mips-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mips-linux-gnu (>= ${version:cpp}),
+  gcc-multilib-mips-linux-gnu (>= ${version:cpp}),
+  gobjc++-mips-linux-gnu (>= ${version:gobjcxx}),
+  gobjc++-${pv:gobjcxx}-multilib-mips-linux-gnu ${reqv:gobjcxx},
+  ${misc:Depends}
+Recommends: g++-mips-linux-gnu (>= ${version:cpp}),
+  gobjc-mips-linux-gnu (>= ${version:cpp})
+Description: GNU Objective-C++ compiler for the mips architecture
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Objective-C++
+ cross-compiler for the mips architecture.
+
+Package: gfortran-multilib-mips-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mips-linux-gnu (= ${version:cpp}),
+  gcc-multilib-mips-linux-gnu (= ${version:gcc}),
+  gfortran-mips-linux-gnu (= ${version:gfort}),
+  gfortran-${pv:gfort}-multilib-mips-linux-gnu ${reqv:gfort},
+  ${misc:Depends}
+Suggests: gfortran-doc
+Description: GNU Fortran 95 compiler for the mips architecture
+ This is the GNU Fortran 95 compiler, which compiles Fortran 95 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Fortran 95
+ cross-compiler for the mips architecture.
+
+Package: gccgo-multilib-mips-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mips-linux-gnu (>= ${version:cpp}),
+  g++-multilib-mips-linux-gnu (>= ${version:gcc}),
+  gccgo-mips-linux-gnu (>= ${version:ggo}),
+  gccgo-${pv:ggo}-multilib-mips-linux-gnu ${reqv:ggo},
+  ${misc:Depends}
+Suggests: gccgo-doc
+Description: Go compiler (based on GCC) for the mips architecture
+ This is the GNU Go compiler, which compiles Go on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Go cross-compiler
+ for the mips architecture.
+
+Package: gdc-multilib-mips-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mips-linux-gnu (>= ${version:cpp}),
+  gdc-${pv:gdc}-multilib-mips-linux-gnu ${reqv:gdc},
+  gdc-mips-linux-gnu (>= ${version:gdc}),
+  ${misc:Depends}
+Description: GNU D compiler (based on GCC) for the mips architecture
+ This is the GNU D compiler, which compiles D on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU D cross-compiler
+ for the mips architecture.
+
+Package: cpp-mipsel-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Section: interpreters
+Depends: cpp-${pv:cpp}-mipsel-linux-gnu ${reqv:cpp}, ${misc:Depends}
+Suggests: cpp-doc
+Description: GNU C preprocessor (cpp) for the mipsel architecture
+ The GNU C preprocessor is a macro processor that is used automatically
+ by the GNU C compiler to transform programs before actual compilation.
+ .
+ This package has been separated from gcc for the benefit of those who
+ require the preprocessor but not the cross-compiler for mipsel architecture.
+ .
+ This is a dependency package providing the default GNU C preprocessor
+ for the mipsel architecture.
+
+Package: gcc-mipsel-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsel-linux-gnu (= ${version:cpp}),
+  gcc-${pv:gcc}-mipsel-linux-gnu ${reqv:gcc},
+  ${misc:Depends}
+Recommends: libc6-dev-mipsel-cross | libc-dev-mipsel-cross
+Suggests: make, manpages-dev, autoconf, automake, libtool, flex, bison, gdb-mipsel-linux-gnu, gcc-doc
+Description: GNU C compiler for the mipsel architecture
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This is a dependency package providing the default GNU C cross-compiler
+ for the mipsel architecture.
+
+Package: g++-mipsel-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsel-linux-gnu (= ${version:cpp}),
+  gcc-mipsel-linux-gnu (= ${version:cpp}),
+  g++-${pv:gpp}-mipsel-linux-gnu ${reqv:gpp},
+  ${misc:Depends}
+Description: GNU C++ compiler for the mipsel architecture
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This is a dependency package providing the default GNU C++ cross-compiler
+ for the mipsel architecture.
+
+Package: gobjc-mipsel-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsel-linux-gnu (>= ${version:cpp}),
+  gcc-mipsel-linux-gnu (>= ${version:cpp}),
+  gobjc-${pv:gobjc}-mipsel-linux-gnu ${reqv:gobjc},
+  ${misc:Depends}
+Description: GNU Objective-C compiler for the mipsel architecture
+ This is the GNU Objective-C compiler, which compiles Objective-C on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Objective-C
+ cross-compiler for the mipsel architecture.
+
+Package: gobjc++-mipsel-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsel-linux-gnu (>= ${version:cpp}),
+  gcc-mipsel-linux-gnu (>= ${version:cpp}),
+  gobjc++-${pv:gobjcxx}-mipsel-linux-gnu ${reqv:gobjcxx},
+  ${misc:Depends}
+Recommends: g++-mipsel-linux-gnu (>= ${version:cpp}), gobjc-mipsel-linux-gnu (>= ${version:cpp})
+Description: GNU Objective-C++ compiler for the mipsel architecture
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Objective-C++
+ cross-compiler for the mipsel architecture.
+
+Package: gfortran-mipsel-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsel-linux-gnu (= ${version:cpp}),
+  gcc-mipsel-linux-gnu (= ${version:gcc}),
+  gfortran-${pv:gfort}-mipsel-linux-gnu ${reqv:gfort},
+  ${misc:Depends}
+Suggests: gfortran-doc
+Description: GNU Fortran 95 compiler for the mipsel architecture
+ This is the GNU Fortran 95 compiler, which compiles Fortran 95 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Fortran 95
+ cross-compiler for the mipsel architecture.
+
+Package: gccgo-mipsel-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsel-linux-gnu (>= ${version:cpp}),
+  g++-mipsel-linux-gnu (>= ${version:gcc}),
+  gccgo-${pv:ggo}-mipsel-linux-gnu ${reqv:ggo},
+  ${misc:Depends}
+Suggests: gccgo-doc
+Description: Go compiler (based on GCC) for the mipsel architecture
+ This is the GNU Go compiler, which compiles Go on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Go cross-compiler
+ for the mipsel architecture.
+
+Package: gdc-mipsel-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsel-linux-gnu (>= ${version:cpp}),
+  gdc-${pv:gdc}-mipsel-linux-gnu ${reqv:gdc},
+  ${misc:Depends}
+Description: GNU D compiler (based on GCC) for the mipsel architecture
+ This is the GNU D compiler, which compiles D on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU D cross-compiler
+ for the mipsel architecture.
+
+Package: gm2-mipsel-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsel-linux-gnu (>= ${version:cpp}),
+  gm2-${pv:gm2}-mipsel-linux-gnu ${reqv:gm2},
+  ${misc:Depends}
+Description: GNU Modula-2 compiler (based on GCC) for the mipsel architecture
+ This is the GNU Modula-2 compiler, which compiles Modula-2 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Modula-2 cross-compiler
+ for the mipsel architecture.
+
+Package: gcc-multilib-mipsel-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mips64r6el arm64 ppc64el
+Depends: cpp-mipsel-linux-gnu (= ${version:cpp}),
+  gcc-mipsel-linux-gnu (= ${version:gcc}),
+  gcc-${pv:gcc}-multilib-mipsel-linux-gnu ${reqv:gcc},
+  ${misc:Depends}
+Recommends: libc6-dev-mipsel-cross | libc-dev-mipsel-cross
+Suggests: make, manpages-dev, autoconf, automake, libtool, flex, bison, gdb-mipsel-linux-gnu, gcc-doc
+Description: GNU C compiler for the mipsel architecture
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This is a dependency package providing the default GNU C cross-compiler
+ for the mipsel architecture.
+
+Package: g++-multilib-mipsel-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mips64r6el arm64 ppc64el
+Depends: cpp-mipsel-linux-gnu (= ${version:cpp}),
+  g++-mipsel-linux-gnu (= ${version:gpp}),
+  gcc-multilib-mipsel-linux-gnu (= ${version:gcc}),
+  g++-${pv:gpp}-multilib-mipsel-linux-gnu ${reqv:gpp},
+  ${misc:Depends}
+Description: GNU C++ compiler for the mipsel architecture
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This is a dependency package providing the default GNU C++
+ cross-compiler for the mipsel architecture.
+
+Package: gobjc-multilib-mipsel-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mips64r6el arm64 ppc64el
+Depends: cpp-mipsel-linux-gnu (>= ${version:cpp}),
+  gobjc-mipsel-linux-gnu (>= ${version:gobjc}),
+  gcc-multilib-mipsel-linux-gnu (>= ${version:cpp}),
+  gobjc-${pv:gobjc}-multilib-mipsel-linux-gnu ${reqv:gobjc},
+  ${misc:Depends}
+Description: GNU Objective-C compiler for the mipsel architecture
+ This is the GNU Objective-C compiler, which compiles Objective-C on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Objective-C
+ cross-compiler for the mipsel architecture.
+
+Package: gobjc++-multilib-mipsel-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mips64r6el arm64 ppc64el
+Depends: cpp-mipsel-linux-gnu (>= ${version:cpp}),
+  gcc-multilib-mipsel-linux-gnu (>= ${version:cpp}),
+  gobjc++-mipsel-linux-gnu (>= ${version:gobjcxx}),
+  gobjc++-${pv:gobjcxx}-multilib-mipsel-linux-gnu ${reqv:gobjcxx},
+  ${misc:Depends}
+Recommends: g++-mipsel-linux-gnu (>= ${version:cpp}),
+  gobjc-mipsel-linux-gnu (>= ${version:cpp})
+Description: GNU Objective-C++ compiler for the mipsel architecture
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Objective-C++
+ cross-compiler for the mipsel architecture.
+
+Package: gfortran-multilib-mipsel-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mips64r6el arm64 ppc64el
+Depends: cpp-mipsel-linux-gnu (= ${version:cpp}),
+  gcc-multilib-mipsel-linux-gnu (= ${version:gcc}),
+  gfortran-mipsel-linux-gnu (= ${version:gfort}),
+  gfortran-${pv:gfort}-multilib-mipsel-linux-gnu ${reqv:gfort},
+  ${misc:Depends}
+Suggests: gfortran-doc
+Description: GNU Fortran 95 compiler for the mipsel architecture
+ This is the GNU Fortran 95 compiler, which compiles Fortran 95 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Fortran 95
+ cross-compiler for the mipsel architecture.
+
+Package: gccgo-multilib-mipsel-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mips64r6el arm64 ppc64el
+Depends: cpp-mipsel-linux-gnu (>= ${version:cpp}),
+  g++-multilib-mipsel-linux-gnu (>= ${version:gcc}),
+  gccgo-mipsel-linux-gnu (>= ${version:ggo}),
+  gccgo-${pv:ggo}-multilib-mipsel-linux-gnu ${reqv:ggo},
+  ${misc:Depends}
+Suggests: gccgo-doc
+Description: Go compiler (based on GCC) for the mipsel architecture
+ This is the GNU Go compiler, which compiles Go on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Go cross-compiler
+ for the mipsel architecture.
+
+Package: gdc-multilib-mipsel-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mips64r6el arm64 ppc64el
+Depends: cpp-mipsel-linux-gnu (>= ${version:cpp}),
+  gdc-${pv:gdc}-multilib-mipsel-linux-gnu ${reqv:gdc},
+  gdc-mipsel-linux-gnu (>= ${version:gdc}),
+  ${misc:Depends}
+Description: GNU D compiler (based on GCC) for the mipsel architecture
+ This is the GNU D compiler, which compiles D on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU D cross-compiler
+ for the mipsel architecture.
+
+Package: cpp-mips64-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Section: interpreters
+Depends: cpp-${pv:cpp}-mips64-linux-gnuabi64 ${reqv:cpp}, ${misc:Depends}
+Suggests: cpp-doc
+Description: GNU C preprocessor (cpp) for the mips64 architecture
+ The GNU C preprocessor is a macro processor that is used automatically
+ by the GNU C compiler to transform programs before actual compilation.
+ .
+ This package has been separated from gcc for the benefit of those who
+ require the preprocessor but not the cross-compiler for mips64 architecture.
+ .
+ This is a dependency package providing the default GNU C preprocessor
+ for the mips64 architecture.
+
+Package: gcc-mips64-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips64-linux-gnuabi64 (= ${version:cpp}),
+  gcc-${pv:gcc}-mips64-linux-gnuabi64 ${reqv:gcc},
+  ${misc:Depends}
+Recommends: libc6-dev-mips64-cross | libc-dev-mips64-cross
+Suggests: make, manpages-dev, autoconf, automake, libtool, flex, bison, gdb-mips64-linux-gnuabi64, gcc-doc
+Description: GNU C compiler for the mips64 architecture
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This is a dependency package providing the default GNU C cross-compiler
+ for the mips64 architecture.
+
+Package: g++-mips64-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips64-linux-gnuabi64 (= ${version:cpp}),
+  gcc-mips64-linux-gnuabi64 (= ${version:cpp}),
+  g++-${pv:gpp}-mips64-linux-gnuabi64 ${reqv:gpp},
+  ${misc:Depends}
+Description: GNU C++ compiler for the mips64 architecture
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This is a dependency package providing the default GNU C++ cross-compiler
+ for the mips64 architecture.
+
+Package: gobjc-mips64-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips64-linux-gnuabi64 (>= ${version:cpp}),
+  gcc-mips64-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc-${pv:gobjc}-mips64-linux-gnuabi64 ${reqv:gobjc},
+  ${misc:Depends}
+Description: GNU Objective-C compiler for the mips64 architecture
+ This is the GNU Objective-C compiler, which compiles Objective-C on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Objective-C
+ cross-compiler for the mips64 architecture.
+
+Package: gobjc++-mips64-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips64-linux-gnuabi64 (>= ${version:cpp}),
+  gcc-mips64-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc++-${pv:gobjcxx}-mips64-linux-gnuabi64 ${reqv:gobjcxx},
+  ${misc:Depends}
+Recommends: g++-mips64-linux-gnuabi64 (>= ${version:cpp}), gobjc-mips64-linux-gnuabi64 (>= ${version:cpp})
+Description: GNU Objective-C++ compiler for the mips64 architecture
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Objective-C++
+ cross-compiler for the mips64 architecture.
+
+Package: gfortran-mips64-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips64-linux-gnuabi64 (= ${version:cpp}),
+  gcc-mips64-linux-gnuabi64 (= ${version:gcc}),
+  gfortran-${pv:gfort}-mips64-linux-gnuabi64 ${reqv:gfort},
+  ${misc:Depends}
+Suggests: gfortran-doc
+Description: GNU Fortran 95 compiler for the mips64 architecture
+ This is the GNU Fortran 95 compiler, which compiles Fortran 95 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Fortran 95
+ cross-compiler for the mips64 architecture.
+
+Package: gccgo-mips64-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips64-linux-gnuabi64 (>= ${version:cpp}),
+  g++-mips64-linux-gnuabi64 (>= ${version:gcc}),
+  gccgo-${pv:ggo}-mips64-linux-gnuabi64 ${reqv:ggo},
+  ${misc:Depends}
+Suggests: gccgo-doc
+Description: Go compiler (based on GCC) for the mips64 architecture
+ This is the GNU Go compiler, which compiles Go on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Go cross-compiler
+ for the mips64 architecture.
+
+Package: gdc-mips64-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips64-linux-gnuabi64 (>= ${version:cpp}),
+  gdc-${pv:gdc}-mips64-linux-gnuabi64 ${reqv:gdc},
+  ${misc:Depends}
+Description: GNU D compiler (based on GCC) for the mips64 architecture
+ This is the GNU D compiler, which compiles D on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU D cross-compiler
+ for the mips64 architecture.
+
+Package: gm2-mips64-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips64-linux-gnuabi64 (>= ${version:cpp}),
+  gm2-${pv:gm2}-mips64-linux-gnuabi64 ${reqv:gm2},
+  ${misc:Depends}
+Description: GNU Modula-2 compiler (based on GCC) for the mips64 architecture
+ This is the GNU Modula-2 compiler, which compiles Modula-2 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Modula-2 cross-compiler
+ for the mips64 architecture.
+
+Package: gcc-multilib-mips64-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mips64-linux-gnuabi64 (= ${version:cpp}),
+  gcc-mips64-linux-gnuabi64 (= ${version:gcc}),
+  gcc-${pv:gcc}-multilib-mips64-linux-gnuabi64 ${reqv:gcc},
+  ${misc:Depends}
+Recommends: libc6-dev-mips64-cross | libc-dev-mips64-cross
+Suggests: make, manpages-dev, autoconf, automake, libtool, flex, bison, gdb-mips64-linux-gnuabi64, gcc-doc
+Description: GNU C compiler for the mips64 architecture
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This is a dependency package providing the default GNU C cross-compiler
+ for the mips64 architecture.
+
+Package: g++-multilib-mips64-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mips64-linux-gnuabi64 (= ${version:cpp}),
+  g++-mips64-linux-gnuabi64 (= ${version:gpp}),
+  gcc-multilib-mips64-linux-gnuabi64 (= ${version:gcc}),
+  g++-${pv:gpp}-multilib-mips64-linux-gnuabi64 ${reqv:gpp},
+  ${misc:Depends}
+Description: GNU C++ compiler for the mips64 architecture
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This is a dependency package providing the default GNU C++
+ cross-compiler for the mips64 architecture.
+
+Package: gobjc-multilib-mips64-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mips64-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc-mips64-linux-gnuabi64 (>= ${version:gobjc}),
+  gcc-multilib-mips64-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc-${pv:gobjc}-multilib-mips64-linux-gnuabi64 ${reqv:gobjc},
+  ${misc:Depends}
+Description: GNU Objective-C compiler for the mips64 architecture
+ This is the GNU Objective-C compiler, which compiles Objective-C on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Objective-C
+ cross-compiler for the mips64 architecture.
+
+Package: gobjc++-multilib-mips64-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mips64-linux-gnuabi64 (>= ${version:cpp}),
+  gcc-multilib-mips64-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc++-mips64-linux-gnuabi64 (>= ${version:gobjcxx}),
+  gobjc++-${pv:gobjcxx}-multilib-mips64-linux-gnuabi64 ${reqv:gobjcxx},
+  ${misc:Depends}
+Recommends: g++-mips64-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc-mips64-linux-gnuabi64 (>= ${version:cpp})
+Description: GNU Objective-C++ compiler for the mips64 architecture
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Objective-C++
+ cross-compiler for the mips64 architecture.
+
+Package: gfortran-multilib-mips64-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mips64-linux-gnuabi64 (= ${version:cpp}),
+  gcc-multilib-mips64-linux-gnuabi64 (= ${version:gcc}),
+  gfortran-mips64-linux-gnuabi64 (= ${version:gfort}),
+  gfortran-${pv:gfort}-multilib-mips64-linux-gnuabi64 ${reqv:gfort},
+  ${misc:Depends}
+Suggests: gfortran-doc
+Description: GNU Fortran 95 compiler for the mips64 architecture
+ This is the GNU Fortran 95 compiler, which compiles Fortran 95 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Fortran 95
+ cross-compiler for the mips64 architecture.
+
+Package: gccgo-multilib-mips64-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mips64-linux-gnuabi64 (>= ${version:cpp}),
+  g++-multilib-mips64-linux-gnuabi64 (>= ${version:gcc}),
+  gccgo-mips64-linux-gnuabi64 (>= ${version:ggo}),
+  gccgo-${pv:ggo}-multilib-mips64-linux-gnuabi64 ${reqv:ggo},
+  ${misc:Depends}
+Suggests: gccgo-doc
+Description: Go compiler (based on GCC) for the mips64 architecture
+ This is the GNU Go compiler, which compiles Go on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Go cross-compiler
+ for the mips64 architecture.
+
+Package: gdc-multilib-mips64-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mips64-linux-gnuabi64 (>= ${version:cpp}),
+  gdc-${pv:gdc}-multilib-mips64-linux-gnuabi64 ${reqv:gdc},
+  gdc-mips64-linux-gnuabi64 (>= ${version:gdc}),
+  ${misc:Depends}
+Description: GNU D compiler (based on GCC) for the mips64 architecture
+ This is the GNU D compiler, which compiles D on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU D cross-compiler
+ for the mips64 architecture.
+
+Package: cpp-mips64el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Section: interpreters
+Depends: cpp-${pv:cpp}-mips64el-linux-gnuabi64 ${reqv:cpp}, ${misc:Depends}
+Suggests: cpp-doc
+Description: GNU C preprocessor (cpp) for the mips64el architecture
+ The GNU C preprocessor is a macro processor that is used automatically
+ by the GNU C compiler to transform programs before actual compilation.
+ .
+ This package has been separated from gcc for the benefit of those who
+ require the preprocessor but not the cross-compiler for mips64el architecture.
+ .
+ This is a dependency package providing the default GNU C preprocessor
+ for the mips64el architecture.
+
+Package: gcc-mips64el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips64el-linux-gnuabi64 (= ${version:cpp}),
+  gcc-${pv:gcc}-mips64el-linux-gnuabi64 ${reqv:gcc},
+  ${misc:Depends}
+Recommends: libc6-dev-mips64el-cross | libc-dev-mips64el-cross
+Suggests: make, manpages-dev, autoconf, automake, libtool, flex, bison, gdb-mips64el-linux-gnuabi64, gcc-doc
+Description: GNU C compiler for the mips64el architecture
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This is a dependency package providing the default GNU C cross-compiler
+ for the mips64el architecture.
+
+Package: g++-mips64el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips64el-linux-gnuabi64 (= ${version:cpp}),
+  gcc-mips64el-linux-gnuabi64 (= ${version:cpp}),
+  g++-${pv:gpp}-mips64el-linux-gnuabi64 ${reqv:gpp},
+  ${misc:Depends}
+Description: GNU C++ compiler for the mips64el architecture
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This is a dependency package providing the default GNU C++ cross-compiler
+ for the mips64el architecture.
+
+Package: gobjc-mips64el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips64el-linux-gnuabi64 (>= ${version:cpp}),
+  gcc-mips64el-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc-${pv:gobjc}-mips64el-linux-gnuabi64 ${reqv:gobjc},
+  ${misc:Depends}
+Description: GNU Objective-C compiler for the mips64el architecture
+ This is the GNU Objective-C compiler, which compiles Objective-C on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Objective-C
+ cross-compiler for the mips64el architecture.
+
+Package: gobjc++-mips64el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips64el-linux-gnuabi64 (>= ${version:cpp}),
+  gcc-mips64el-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc++-${pv:gobjcxx}-mips64el-linux-gnuabi64 ${reqv:gobjcxx},
+  ${misc:Depends}
+Recommends: g++-mips64el-linux-gnuabi64 (>= ${version:cpp}), gobjc-mips64el-linux-gnuabi64 (>= ${version:cpp})
+Description: GNU Objective-C++ compiler for the mips64el architecture
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Objective-C++
+ cross-compiler for the mips64el architecture.
+
+Package: gfortran-mips64el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips64el-linux-gnuabi64 (= ${version:cpp}),
+  gcc-mips64el-linux-gnuabi64 (= ${version:gcc}),
+  gfortran-${pv:gfort}-mips64el-linux-gnuabi64 ${reqv:gfort},
+  ${misc:Depends}
+Suggests: gfortran-doc
+Description: GNU Fortran 95 compiler for the mips64el architecture
+ This is the GNU Fortran 95 compiler, which compiles Fortran 95 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Fortran 95
+ cross-compiler for the mips64el architecture.
+
+Package: gccgo-mips64el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips64el-linux-gnuabi64 (>= ${version:cpp}),
+  g++-mips64el-linux-gnuabi64 (>= ${version:gcc}),
+  gccgo-${pv:ggo}-mips64el-linux-gnuabi64 ${reqv:ggo},
+  ${misc:Depends}
+Suggests: gccgo-doc
+Description: Go compiler (based on GCC) for the mips64el architecture
+ This is the GNU Go compiler, which compiles Go on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Go cross-compiler
+ for the mips64el architecture.
+
+Package: gdc-mips64el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips64el-linux-gnuabi64 (>= ${version:cpp}),
+  gdc-${pv:gdc}-mips64el-linux-gnuabi64 ${reqv:gdc},
+  ${misc:Depends}
+Description: GNU D compiler (based on GCC) for the mips64el architecture
+ This is the GNU D compiler, which compiles D on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU D cross-compiler
+ for the mips64el architecture.
+
+Package: gm2-mips64el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mips64el-linux-gnuabi64 (>= ${version:cpp}),
+  gm2-${pv:gm2}-mips64el-linux-gnuabi64 ${reqv:gm2},
+  ${misc:Depends}
+Description: GNU Modula-2 compiler (based on GCC) for the mips64el architecture
+ This is the GNU Modula-2 compiler, which compiles Modula-2 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Modula-2 cross-compiler
+ for the mips64el architecture.
+
+Package: gcc-multilib-mips64el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mips64el-linux-gnuabi64 (= ${version:cpp}),
+  gcc-mips64el-linux-gnuabi64 (= ${version:gcc}),
+  gcc-${pv:gcc}-multilib-mips64el-linux-gnuabi64 ${reqv:gcc},
+  ${misc:Depends}
+Recommends: libc6-dev-mips64el-cross | libc-dev-mips64el-cross
+Suggests: make, manpages-dev, autoconf, automake, libtool, flex, bison, gdb-mips64el-linux-gnuabi64, gcc-doc
+Description: GNU C compiler for the mips64el architecture
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This is a dependency package providing the default GNU C cross-compiler
+ for the mips64el architecture.
+
+Package: g++-multilib-mips64el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mips64el-linux-gnuabi64 (= ${version:cpp}),
+  g++-mips64el-linux-gnuabi64 (= ${version:gpp}),
+  gcc-multilib-mips64el-linux-gnuabi64 (= ${version:gcc}),
+  g++-${pv:gpp}-multilib-mips64el-linux-gnuabi64 ${reqv:gpp},
+  ${misc:Depends}
+Description: GNU C++ compiler for the mips64el architecture
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This is a dependency package providing the default GNU C++
+ cross-compiler for the mips64el architecture.
+
+Package: gobjc-multilib-mips64el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mips64el-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc-mips64el-linux-gnuabi64 (>= ${version:gobjc}),
+  gcc-multilib-mips64el-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc-${pv:gobjc}-multilib-mips64el-linux-gnuabi64 ${reqv:gobjc},
+  ${misc:Depends}
+Description: GNU Objective-C compiler for the mips64el architecture
+ This is the GNU Objective-C compiler, which compiles Objective-C on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Objective-C
+ cross-compiler for the mips64el architecture.
+
+Package: gobjc++-multilib-mips64el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mips64el-linux-gnuabi64 (>= ${version:cpp}),
+  gcc-multilib-mips64el-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc++-mips64el-linux-gnuabi64 (>= ${version:gobjcxx}),
+  gobjc++-${pv:gobjcxx}-multilib-mips64el-linux-gnuabi64 ${reqv:gobjcxx},
+  ${misc:Depends}
+Recommends: g++-mips64el-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc-mips64el-linux-gnuabi64 (>= ${version:cpp})
+Description: GNU Objective-C++ compiler for the mips64el architecture
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Objective-C++
+ cross-compiler for the mips64el architecture.
+
+Package: gfortran-multilib-mips64el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mips64el-linux-gnuabi64 (= ${version:cpp}),
+  gcc-multilib-mips64el-linux-gnuabi64 (= ${version:gcc}),
+  gfortran-mips64el-linux-gnuabi64 (= ${version:gfort}),
+  gfortran-${pv:gfort}-multilib-mips64el-linux-gnuabi64 ${reqv:gfort},
+  ${misc:Depends}
+Suggests: gfortran-doc
+Description: GNU Fortran 95 compiler for the mips64el architecture
+ This is the GNU Fortran 95 compiler, which compiles Fortran 95 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Fortran 95
+ cross-compiler for the mips64el architecture.
+
+Package: gccgo-multilib-mips64el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mips64el-linux-gnuabi64 (>= ${version:cpp}),
+  g++-multilib-mips64el-linux-gnuabi64 (>= ${version:gcc}),
+  gccgo-mips64el-linux-gnuabi64 (>= ${version:ggo}),
+  gccgo-${pv:ggo}-multilib-mips64el-linux-gnuabi64 ${reqv:ggo},
+  ${misc:Depends}
+Suggests: gccgo-doc
+Description: Go compiler (based on GCC) for the mips64el architecture
+ This is the GNU Go compiler, which compiles Go on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Go cross-compiler
+ for the mips64el architecture.
+
+Package: gdc-multilib-mips64el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mips64el-linux-gnuabi64 (>= ${version:cpp}),
+  gdc-${pv:gdc}-multilib-mips64el-linux-gnuabi64 ${reqv:gdc},
+  gdc-mips64el-linux-gnuabi64 (>= ${version:gdc}),
+  ${misc:Depends}
+Description: GNU D compiler (based on GCC) for the mips64el architecture
+ This is the GNU D compiler, which compiles D on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU D cross-compiler
+ for the mips64el architecture.
+
+Package: cpp-mipsisa32r6-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Section: interpreters
+Depends: cpp-${pv:cpp}-mipsisa32r6-linux-gnu ${reqv:cpp}, ${misc:Depends}
+Suggests: cpp-doc
+Description: GNU C preprocessor (cpp) for the mipsr6 architecture
+ The GNU C preprocessor is a macro processor that is used automatically
+ by the GNU C compiler to transform programs before actual compilation.
+ .
+ This package has been separated from gcc for the benefit of those who
+ require the preprocessor but not the cross-compiler for mipsr6 architecture.
+ .
+ This is a dependency package providing the default GNU C preprocessor
+ for the mipsr6 architecture.
+
+Package: gcc-mipsisa32r6-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa32r6-linux-gnu (= ${version:cpp}),
+  gcc-${pv:gcc}-mipsisa32r6-linux-gnu ${reqv:gcc},
+  ${misc:Depends}
+Recommends: libc6-dev-mipsr6-cross | libc-dev-mipsr6-cross
+Suggests: make, manpages-dev, autoconf, automake, libtool, flex, bison, gdb-mipsisa32r6-linux-gnu, gcc-doc
+Description: GNU C compiler for the mipsr6 architecture
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This is a dependency package providing the default GNU C cross-compiler
+ for the mipsr6 architecture.
+
+Package: g++-mipsisa32r6-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa32r6-linux-gnu (= ${version:cpp}),
+  gcc-mipsisa32r6-linux-gnu (= ${version:cpp}),
+  g++-${pv:gpp}-mipsisa32r6-linux-gnu ${reqv:gpp},
+  ${misc:Depends}
+Description: GNU C++ compiler for the mipsr6 architecture
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This is a dependency package providing the default GNU C++ cross-compiler
+ for the mipsr6 architecture.
+
+Package: gobjc-mipsisa32r6-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa32r6-linux-gnu (>= ${version:cpp}),
+  gcc-mipsisa32r6-linux-gnu (>= ${version:cpp}),
+  gobjc-${pv:gobjc}-mipsisa32r6-linux-gnu ${reqv:gobjc},
+  ${misc:Depends}
+Description: GNU Objective-C compiler for the mipsr6 architecture
+ This is the GNU Objective-C compiler, which compiles Objective-C on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Objective-C
+ cross-compiler for the mipsr6 architecture.
+
+Package: gobjc++-mipsisa32r6-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa32r6-linux-gnu (>= ${version:cpp}),
+  gcc-mipsisa32r6-linux-gnu (>= ${version:cpp}),
+  gobjc++-${pv:gobjcxx}-mipsisa32r6-linux-gnu ${reqv:gobjcxx},
+  ${misc:Depends}
+Recommends: g++-mipsisa32r6-linux-gnu (>= ${version:cpp}), gobjc-mipsisa32r6-linux-gnu (>= ${version:cpp})
+Description: GNU Objective-C++ compiler for the mipsr6 architecture
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Objective-C++
+ cross-compiler for the mipsr6 architecture.
+
+Package: gfortran-mipsisa32r6-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa32r6-linux-gnu (= ${version:cpp}),
+  gcc-mipsisa32r6-linux-gnu (= ${version:gcc}),
+  gfortran-${pv:gfort}-mipsisa32r6-linux-gnu ${reqv:gfort},
+  ${misc:Depends}
+Suggests: gfortran-doc
+Description: GNU Fortran 95 compiler for the mipsr6 architecture
+ This is the GNU Fortran 95 compiler, which compiles Fortran 95 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Fortran 95
+ cross-compiler for the mipsr6 architecture.
+
+Package: gccgo-mipsisa32r6-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa32r6-linux-gnu (>= ${version:cpp}),
+  g++-mipsisa32r6-linux-gnu (>= ${version:gcc}),
+  gccgo-${pv:ggo}-mipsisa32r6-linux-gnu ${reqv:ggo},
+  ${misc:Depends}
+Suggests: gccgo-doc
+Description: Go compiler (based on GCC) for the mipsr6 architecture
+ This is the GNU Go compiler, which compiles Go on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Go cross-compiler
+ for the mipsr6 architecture.
+
+Package: gdc-mipsisa32r6-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa32r6-linux-gnu (>= ${version:cpp}),
+  gdc-${pv:gdc}-mipsisa32r6-linux-gnu ${reqv:gdc},
+  ${misc:Depends}
+Description: GNU D compiler (based on GCC) for the mipsr6 architecture
+ This is the GNU D compiler, which compiles D on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU D cross-compiler
+ for the mipsr6 architecture.
+
+Package: gm2-mipsisa32r6-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa32r6-linux-gnu (>= ${version:cpp}),
+  gm2-${pv:gm2}-mipsisa32r6-linux-gnu ${reqv:gm2},
+  ${misc:Depends}
+Description: GNU Modula-2 compiler (based on GCC) for the mipsr6 architecture
+ This is the GNU Modula-2 compiler, which compiles Modula-2 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Modula-2 cross-compiler
+ for the mipsr6 architecture.
+
+Package: gcc-multilib-mipsisa32r6-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mipsisa32r6-linux-gnu (= ${version:cpp}),
+  gcc-mipsisa32r6-linux-gnu (= ${version:gcc}),
+  gcc-${pv:gcc}-multilib-mipsisa32r6-linux-gnu ${reqv:gcc},
+  ${misc:Depends}
+Recommends: libc6-dev-mipsr6-cross | libc-dev-mipsr6-cross
+Suggests: make, manpages-dev, autoconf, automake, libtool, flex, bison, gdb-mipsisa32r6-linux-gnu, gcc-doc
+Description: GNU C compiler for the mipsr6 architecture
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This is a dependency package providing the default GNU C cross-compiler
+ for the mipsr6 architecture.
+
+Package: g++-multilib-mipsisa32r6-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mipsisa32r6-linux-gnu (= ${version:cpp}),
+  g++-mipsisa32r6-linux-gnu (= ${version:gpp}),
+  gcc-multilib-mipsisa32r6-linux-gnu (= ${version:gcc}),
+  g++-${pv:gpp}-multilib-mipsisa32r6-linux-gnu ${reqv:gpp},
+  ${misc:Depends}
+Description: GNU C++ compiler for the mipsr6 architecture
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This is a dependency package providing the default GNU C++
+ cross-compiler for the mipsr6 architecture.
+
+Package: gobjc-multilib-mipsisa32r6-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mipsisa32r6-linux-gnu (>= ${version:cpp}),
+  gobjc-mipsisa32r6-linux-gnu (>= ${version:gobjc}),
+  gcc-multilib-mipsisa32r6-linux-gnu (>= ${version:cpp}),
+  gobjc-${pv:gobjc}-multilib-mipsisa32r6-linux-gnu ${reqv:gobjc},
+  ${misc:Depends}
+Description: GNU Objective-C compiler for the mipsr6 architecture
+ This is the GNU Objective-C compiler, which compiles Objective-C on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Objective-C
+ cross-compiler for the mipsr6 architecture.
+
+Package: gobjc++-multilib-mipsisa32r6-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mipsisa32r6-linux-gnu (>= ${version:cpp}),
+  gcc-multilib-mipsisa32r6-linux-gnu (>= ${version:cpp}),
+  gobjc++-mipsisa32r6-linux-gnu (>= ${version:gobjcxx}),
+  gobjc++-${pv:gobjcxx}-multilib-mipsisa32r6-linux-gnu ${reqv:gobjcxx},
+  ${misc:Depends}
+Recommends: g++-mipsisa32r6-linux-gnu (>= ${version:cpp}),
+  gobjc-mipsisa32r6-linux-gnu (>= ${version:cpp})
+Description: GNU Objective-C++ compiler for the mipsr6 architecture
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Objective-C++
+ cross-compiler for the mipsr6 architecture.
+
+Package: gfortran-multilib-mipsisa32r6-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mipsisa32r6-linux-gnu (= ${version:cpp}),
+  gcc-multilib-mipsisa32r6-linux-gnu (= ${version:gcc}),
+  gfortran-mipsisa32r6-linux-gnu (= ${version:gfort}),
+  gfortran-${pv:gfort}-multilib-mipsisa32r6-linux-gnu ${reqv:gfort},
+  ${misc:Depends}
+Suggests: gfortran-doc
+Description: GNU Fortran 95 compiler for the mipsr6 architecture
+ This is the GNU Fortran 95 compiler, which compiles Fortran 95 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Fortran 95
+ cross-compiler for the mipsr6 architecture.
+
+Package: gccgo-multilib-mipsisa32r6-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mipsisa32r6-linux-gnu (>= ${version:cpp}),
+  g++-multilib-mipsisa32r6-linux-gnu (>= ${version:gcc}),
+  gccgo-mipsisa32r6-linux-gnu (>= ${version:ggo}),
+  gccgo-${pv:ggo}-multilib-mipsisa32r6-linux-gnu ${reqv:ggo},
+  ${misc:Depends}
+Suggests: gccgo-doc
+Description: Go compiler (based on GCC) for the mipsr6 architecture
+ This is the GNU Go compiler, which compiles Go on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Go cross-compiler
+ for the mipsr6 architecture.
+
+Package: gdc-multilib-mipsisa32r6-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mipsisa32r6-linux-gnu (>= ${version:cpp}),
+  gdc-${pv:gdc}-multilib-mipsisa32r6-linux-gnu ${reqv:gdc},
+  gdc-mipsisa32r6-linux-gnu (>= ${version:gdc}),
+  ${misc:Depends}
+Description: GNU D compiler (based on GCC) for the mipsr6 architecture
+ This is the GNU D compiler, which compiles D on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU D cross-compiler
+ for the mipsr6 architecture.
+
+Package: cpp-mipsisa32r6el-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Section: interpreters
+Depends: cpp-${pv:cpp}-mipsisa32r6el-linux-gnu ${reqv:cpp}, ${misc:Depends}
+Suggests: cpp-doc
+Description: GNU C preprocessor (cpp) for the mipsr6el architecture
+ The GNU C preprocessor is a macro processor that is used automatically
+ by the GNU C compiler to transform programs before actual compilation.
+ .
+ This package has been separated from gcc for the benefit of those who
+ require the preprocessor but not the cross-compiler for mipsr6el architecture.
+ .
+ This is a dependency package providing the default GNU C preprocessor
+ for the mipsr6el architecture.
+
+Package: gcc-mipsisa32r6el-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa32r6el-linux-gnu (= ${version:cpp}),
+  gcc-${pv:gcc}-mipsisa32r6el-linux-gnu ${reqv:gcc},
+  ${misc:Depends}
+Recommends: libc6-dev-mipsr6el-cross | libc-dev-mipsr6el-cross
+Suggests: make, manpages-dev, autoconf, automake, libtool, flex, bison, gdb-mipsisa32r6el-linux-gnu, gcc-doc
+Description: GNU C compiler for the mipsr6el architecture
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This is a dependency package providing the default GNU C cross-compiler
+ for the mipsr6el architecture.
+
+Package: g++-mipsisa32r6el-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa32r6el-linux-gnu (= ${version:cpp}),
+  gcc-mipsisa32r6el-linux-gnu (= ${version:cpp}),
+  g++-${pv:gpp}-mipsisa32r6el-linux-gnu ${reqv:gpp},
+  ${misc:Depends}
+Description: GNU C++ compiler for the mipsr6el architecture
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This is a dependency package providing the default GNU C++ cross-compiler
+ for the mipsr6el architecture.
+
+Package: gobjc-mipsisa32r6el-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa32r6el-linux-gnu (>= ${version:cpp}),
+  gcc-mipsisa32r6el-linux-gnu (>= ${version:cpp}),
+  gobjc-${pv:gobjc}-mipsisa32r6el-linux-gnu ${reqv:gobjc},
+  ${misc:Depends}
+Description: GNU Objective-C compiler for the mipsr6el architecture
+ This is the GNU Objective-C compiler, which compiles Objective-C on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Objective-C
+ cross-compiler for the mipsr6el architecture.
+
+Package: gobjc++-mipsisa32r6el-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa32r6el-linux-gnu (>= ${version:cpp}),
+  gcc-mipsisa32r6el-linux-gnu (>= ${version:cpp}),
+  gobjc++-${pv:gobjcxx}-mipsisa32r6el-linux-gnu ${reqv:gobjcxx},
+  ${misc:Depends}
+Recommends: g++-mipsisa32r6el-linux-gnu (>= ${version:cpp}), gobjc-mipsisa32r6el-linux-gnu (>= ${version:cpp})
+Description: GNU Objective-C++ compiler for the mipsr6el architecture
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Objective-C++
+ cross-compiler for the mipsr6el architecture.
+
+Package: gfortran-mipsisa32r6el-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa32r6el-linux-gnu (= ${version:cpp}),
+  gcc-mipsisa32r6el-linux-gnu (= ${version:gcc}),
+  gfortran-${pv:gfort}-mipsisa32r6el-linux-gnu ${reqv:gfort},
+  ${misc:Depends}
+Suggests: gfortran-doc
+Description: GNU Fortran 95 compiler for the mipsr6el architecture
+ This is the GNU Fortran 95 compiler, which compiles Fortran 95 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Fortran 95
+ cross-compiler for the mipsr6el architecture.
+
+Package: gccgo-mipsisa32r6el-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa32r6el-linux-gnu (>= ${version:cpp}),
+  g++-mipsisa32r6el-linux-gnu (>= ${version:gcc}),
+  gccgo-${pv:ggo}-mipsisa32r6el-linux-gnu ${reqv:ggo},
+  ${misc:Depends}
+Suggests: gccgo-doc
+Description: Go compiler (based on GCC) for the mipsr6el architecture
+ This is the GNU Go compiler, which compiles Go on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Go cross-compiler
+ for the mipsr6el architecture.
+
+Package: gdc-mipsisa32r6el-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa32r6el-linux-gnu (>= ${version:cpp}),
+  gdc-${pv:gdc}-mipsisa32r6el-linux-gnu ${reqv:gdc},
+  ${misc:Depends}
+Description: GNU D compiler (based on GCC) for the mipsr6el architecture
+ This is the GNU D compiler, which compiles D on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU D cross-compiler
+ for the mipsr6el architecture.
+
+Package: gm2-mipsisa32r6el-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa32r6el-linux-gnu (>= ${version:cpp}),
+  gm2-${pv:gm2}-mipsisa32r6el-linux-gnu ${reqv:gm2},
+  ${misc:Depends}
+Description: GNU Modula-2 compiler (based on GCC) for the mipsr6el architecture
+ This is the GNU Modula-2 compiler, which compiles Modula-2 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Modula-2 cross-compiler
+ for the mipsr6el architecture.
+
+Package: gcc-multilib-mipsisa32r6el-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mipsisa32r6el-linux-gnu (= ${version:cpp}),
+  gcc-mipsisa32r6el-linux-gnu (= ${version:gcc}),
+  gcc-${pv:gcc}-multilib-mipsisa32r6el-linux-gnu ${reqv:gcc},
+  ${misc:Depends}
+Recommends: libc6-dev-mipsr6el-cross | libc-dev-mipsr6el-cross
+Suggests: make, manpages-dev, autoconf, automake, libtool, flex, bison, gdb-mipsisa32r6el-linux-gnu, gcc-doc
+Description: GNU C compiler for the mipsr6el architecture
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This is a dependency package providing the default GNU C cross-compiler
+ for the mipsr6el architecture.
+
+Package: g++-multilib-mipsisa32r6el-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mipsisa32r6el-linux-gnu (= ${version:cpp}),
+  g++-mipsisa32r6el-linux-gnu (= ${version:gpp}),
+  gcc-multilib-mipsisa32r6el-linux-gnu (= ${version:gcc}),
+  g++-${pv:gpp}-multilib-mipsisa32r6el-linux-gnu ${reqv:gpp},
+  ${misc:Depends}
+Description: GNU C++ compiler for the mipsr6el architecture
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This is a dependency package providing the default GNU C++
+ cross-compiler for the mipsr6el architecture.
+
+Package: gobjc-multilib-mipsisa32r6el-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mipsisa32r6el-linux-gnu (>= ${version:cpp}),
+  gobjc-mipsisa32r6el-linux-gnu (>= ${version:gobjc}),
+  gcc-multilib-mipsisa32r6el-linux-gnu (>= ${version:cpp}),
+  gobjc-${pv:gobjc}-multilib-mipsisa32r6el-linux-gnu ${reqv:gobjc},
+  ${misc:Depends}
+Description: GNU Objective-C compiler for the mipsr6el architecture
+ This is the GNU Objective-C compiler, which compiles Objective-C on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Objective-C
+ cross-compiler for the mipsr6el architecture.
+
+Package: gobjc++-multilib-mipsisa32r6el-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mipsisa32r6el-linux-gnu (>= ${version:cpp}),
+  gcc-multilib-mipsisa32r6el-linux-gnu (>= ${version:cpp}),
+  gobjc++-mipsisa32r6el-linux-gnu (>= ${version:gobjcxx}),
+  gobjc++-${pv:gobjcxx}-multilib-mipsisa32r6el-linux-gnu ${reqv:gobjcxx},
+  ${misc:Depends}
+Recommends: g++-mipsisa32r6el-linux-gnu (>= ${version:cpp}),
+  gobjc-mipsisa32r6el-linux-gnu (>= ${version:cpp})
+Description: GNU Objective-C++ compiler for the mipsr6el architecture
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Objective-C++
+ cross-compiler for the mipsr6el architecture.
+
+Package: gfortran-multilib-mipsisa32r6el-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mipsisa32r6el-linux-gnu (= ${version:cpp}),
+  gcc-multilib-mipsisa32r6el-linux-gnu (= ${version:gcc}),
+  gfortran-mipsisa32r6el-linux-gnu (= ${version:gfort}),
+  gfortran-${pv:gfort}-multilib-mipsisa32r6el-linux-gnu ${reqv:gfort},
+  ${misc:Depends}
+Suggests: gfortran-doc
+Description: GNU Fortran 95 compiler for the mipsr6el architecture
+ This is the GNU Fortran 95 compiler, which compiles Fortran 95 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Fortran 95
+ cross-compiler for the mipsr6el architecture.
+
+Package: gccgo-multilib-mipsisa32r6el-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mipsisa32r6el-linux-gnu (>= ${version:cpp}),
+  g++-multilib-mipsisa32r6el-linux-gnu (>= ${version:gcc}),
+  gccgo-mipsisa32r6el-linux-gnu (>= ${version:ggo}),
+  gccgo-${pv:ggo}-multilib-mipsisa32r6el-linux-gnu ${reqv:ggo},
+  ${misc:Depends}
+Suggests: gccgo-doc
+Description: Go compiler (based on GCC) for the mipsr6el architecture
+ This is the GNU Go compiler, which compiles Go on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Go cross-compiler
+ for the mipsr6el architecture.
+
+Package: gdc-multilib-mipsisa32r6el-linux-gnu
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mipsisa32r6el-linux-gnu (>= ${version:cpp}),
+  gdc-${pv:gdc}-multilib-mipsisa32r6el-linux-gnu ${reqv:gdc},
+  gdc-mipsisa32r6el-linux-gnu (>= ${version:gdc}),
+  ${misc:Depends}
+Description: GNU D compiler (based on GCC) for the mipsr6el architecture
+ This is the GNU D compiler, which compiles D on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU D cross-compiler
+ for the mipsr6el architecture.
+
+Package: cpp-mipsisa64r6-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Section: interpreters
+Depends: cpp-${pv:cpp}-mipsisa64r6-linux-gnuabi64 ${reqv:cpp}, ${misc:Depends}
+Suggests: cpp-doc
+Description: GNU C preprocessor (cpp) for the mips64r6 architecture
+ The GNU C preprocessor is a macro processor that is used automatically
+ by the GNU C compiler to transform programs before actual compilation.
+ .
+ This package has been separated from gcc for the benefit of those who
+ require the preprocessor but not the cross-compiler for mips64r6 architecture.
+ .
+ This is a dependency package providing the default GNU C preprocessor
+ for the mips64r6 architecture.
+
+Package: gcc-mipsisa64r6-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa64r6-linux-gnuabi64 (= ${version:cpp}),
+  gcc-${pv:gcc}-mipsisa64r6-linux-gnuabi64 ${reqv:gcc},
+  ${misc:Depends}
+Recommends: libc6-dev-mips64r6-cross | libc-dev-mips64r6-cross
+Suggests: make, manpages-dev, autoconf, automake, libtool, flex, bison, gdb-mipsisa64r6-linux-gnuabi64, gcc-doc
+Description: GNU C compiler for the mips64r6 architecture
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This is a dependency package providing the default GNU C cross-compiler
+ for the mips64r6 architecture.
+
+Package: g++-mipsisa64r6-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa64r6-linux-gnuabi64 (= ${version:cpp}),
+  gcc-mipsisa64r6-linux-gnuabi64 (= ${version:cpp}),
+  g++-${pv:gpp}-mipsisa64r6-linux-gnuabi64 ${reqv:gpp},
+  ${misc:Depends}
+Description: GNU C++ compiler for the mips64r6 architecture
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This is a dependency package providing the default GNU C++ cross-compiler
+ for the mips64r6 architecture.
+
+Package: gobjc-mipsisa64r6-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa64r6-linux-gnuabi64 (>= ${version:cpp}),
+  gcc-mipsisa64r6-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc-${pv:gobjc}-mipsisa64r6-linux-gnuabi64 ${reqv:gobjc},
+  ${misc:Depends}
+Description: GNU Objective-C compiler for the mips64r6 architecture
+ This is the GNU Objective-C compiler, which compiles Objective-C on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Objective-C
+ cross-compiler for the mips64r6 architecture.
+
+Package: gobjc++-mipsisa64r6-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa64r6-linux-gnuabi64 (>= ${version:cpp}),
+  gcc-mipsisa64r6-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc++-${pv:gobjcxx}-mipsisa64r6-linux-gnuabi64 ${reqv:gobjcxx},
+  ${misc:Depends}
+Recommends: g++-mipsisa64r6-linux-gnuabi64 (>= ${version:cpp}), gobjc-mipsisa64r6-linux-gnuabi64 (>= ${version:cpp})
+Description: GNU Objective-C++ compiler for the mips64r6 architecture
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Objective-C++
+ cross-compiler for the mips64r6 architecture.
+
+Package: gfortran-mipsisa64r6-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa64r6-linux-gnuabi64 (= ${version:cpp}),
+  gcc-mipsisa64r6-linux-gnuabi64 (= ${version:gcc}),
+  gfortran-${pv:gfort}-mipsisa64r6-linux-gnuabi64 ${reqv:gfort},
+  ${misc:Depends}
+Suggests: gfortran-doc
+Description: GNU Fortran 95 compiler for the mips64r6 architecture
+ This is the GNU Fortran 95 compiler, which compiles Fortran 95 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Fortran 95
+ cross-compiler for the mips64r6 architecture.
+
+Package: gccgo-mipsisa64r6-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa64r6-linux-gnuabi64 (>= ${version:cpp}),
+  g++-mipsisa64r6-linux-gnuabi64 (>= ${version:gcc}),
+  gccgo-${pv:ggo}-mipsisa64r6-linux-gnuabi64 ${reqv:ggo},
+  ${misc:Depends}
+Suggests: gccgo-doc
+Description: Go compiler (based on GCC) for the mips64r6 architecture
+ This is the GNU Go compiler, which compiles Go on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Go cross-compiler
+ for the mips64r6 architecture.
+
+Package: gdc-mipsisa64r6-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa64r6-linux-gnuabi64 (>= ${version:cpp}),
+  gdc-${pv:gdc}-mipsisa64r6-linux-gnuabi64 ${reqv:gdc},
+  ${misc:Depends}
+Description: GNU D compiler (based on GCC) for the mips64r6 architecture
+ This is the GNU D compiler, which compiles D on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU D cross-compiler
+ for the mips64r6 architecture.
+
+Package: gm2-mipsisa64r6-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa64r6-linux-gnuabi64 (>= ${version:cpp}),
+  gm2-${pv:gm2}-mipsisa64r6-linux-gnuabi64 ${reqv:gm2},
+  ${misc:Depends}
+Description: GNU Modula-2 compiler (based on GCC) for the mips64r6 architecture
+ This is the GNU Modula-2 compiler, which compiles Modula-2 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Modula-2 cross-compiler
+ for the mips64r6 architecture.
+
+Package: gcc-multilib-mipsisa64r6-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mipsisa64r6-linux-gnuabi64 (= ${version:cpp}),
+  gcc-mipsisa64r6-linux-gnuabi64 (= ${version:gcc}),
+  gcc-${pv:gcc}-multilib-mipsisa64r6-linux-gnuabi64 ${reqv:gcc},
+  ${misc:Depends}
+Recommends: libc6-dev-mips64r6-cross | libc-dev-mips64r6-cross
+Suggests: make, manpages-dev, autoconf, automake, libtool, flex, bison, gdb-mipsisa64r6-linux-gnuabi64, gcc-doc
+Description: GNU C compiler for the mips64r6 architecture
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This is a dependency package providing the default GNU C cross-compiler
+ for the mips64r6 architecture.
+
+Package: g++-multilib-mipsisa64r6-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mipsisa64r6-linux-gnuabi64 (= ${version:cpp}),
+  g++-mipsisa64r6-linux-gnuabi64 (= ${version:gpp}),
+  gcc-multilib-mipsisa64r6-linux-gnuabi64 (= ${version:gcc}),
+  g++-${pv:gpp}-multilib-mipsisa64r6-linux-gnuabi64 ${reqv:gpp},
+  ${misc:Depends}
+Description: GNU C++ compiler for the mips64r6 architecture
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This is a dependency package providing the default GNU C++
+ cross-compiler for the mips64r6 architecture.
+
+Package: gobjc-multilib-mipsisa64r6-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mipsisa64r6-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc-mipsisa64r6-linux-gnuabi64 (>= ${version:gobjc}),
+  gcc-multilib-mipsisa64r6-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc-${pv:gobjc}-multilib-mipsisa64r6-linux-gnuabi64 ${reqv:gobjc},
+  ${misc:Depends}
+Description: GNU Objective-C compiler for the mips64r6 architecture
+ This is the GNU Objective-C compiler, which compiles Objective-C on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Objective-C
+ cross-compiler for the mips64r6 architecture.
+
+Package: gobjc++-multilib-mipsisa64r6-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mipsisa64r6-linux-gnuabi64 (>= ${version:cpp}),
+  gcc-multilib-mipsisa64r6-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc++-mipsisa64r6-linux-gnuabi64 (>= ${version:gobjcxx}),
+  gobjc++-${pv:gobjcxx}-multilib-mipsisa64r6-linux-gnuabi64 ${reqv:gobjcxx},
+  ${misc:Depends}
+Recommends: g++-mipsisa64r6-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc-mipsisa64r6-linux-gnuabi64 (>= ${version:cpp})
+Description: GNU Objective-C++ compiler for the mips64r6 architecture
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Objective-C++
+ cross-compiler for the mips64r6 architecture.
+
+Package: gfortran-multilib-mipsisa64r6-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mipsisa64r6-linux-gnuabi64 (= ${version:cpp}),
+  gcc-multilib-mipsisa64r6-linux-gnuabi64 (= ${version:gcc}),
+  gfortran-mipsisa64r6-linux-gnuabi64 (= ${version:gfort}),
+  gfortran-${pv:gfort}-multilib-mipsisa64r6-linux-gnuabi64 ${reqv:gfort},
+  ${misc:Depends}
+Suggests: gfortran-doc
+Description: GNU Fortran 95 compiler for the mips64r6 architecture
+ This is the GNU Fortran 95 compiler, which compiles Fortran 95 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Fortran 95
+ cross-compiler for the mips64r6 architecture.
+
+Package: gccgo-multilib-mipsisa64r6-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mipsisa64r6-linux-gnuabi64 (>= ${version:cpp}),
+  g++-multilib-mipsisa64r6-linux-gnuabi64 (>= ${version:gcc}),
+  gccgo-mipsisa64r6-linux-gnuabi64 (>= ${version:ggo}),
+  gccgo-${pv:ggo}-multilib-mipsisa64r6-linux-gnuabi64 ${reqv:ggo},
+  ${misc:Depends}
+Suggests: gccgo-doc
+Description: Go compiler (based on GCC) for the mips64r6 architecture
+ This is the GNU Go compiler, which compiles Go on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Go cross-compiler
+ for the mips64r6 architecture.
+
+Package: gdc-multilib-mipsisa64r6-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel mips64r6el arm64 ppc64el
+Depends: cpp-mipsisa64r6-linux-gnuabi64 (>= ${version:cpp}),
+  gdc-${pv:gdc}-multilib-mipsisa64r6-linux-gnuabi64 ${reqv:gdc},
+  gdc-mipsisa64r6-linux-gnuabi64 (>= ${version:gdc}),
+  ${misc:Depends}
+Description: GNU D compiler (based on GCC) for the mips64r6 architecture
+ This is the GNU D compiler, which compiles D on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU D cross-compiler
+ for the mips64r6 architecture.
+
+Package: cpp-mipsisa64r6el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel arm64 ppc64el
+Multi-Arch: foreign
+Section: interpreters
+Depends: cpp-${pv:cpp}-mipsisa64r6el-linux-gnuabi64 ${reqv:cpp}, ${misc:Depends}
+Suggests: cpp-doc
+Description: GNU C preprocessor (cpp) for the mips64r6el architecture
+ The GNU C preprocessor is a macro processor that is used automatically
+ by the GNU C compiler to transform programs before actual compilation.
+ .
+ This package has been separated from gcc for the benefit of those who
+ require the preprocessor but not the cross-compiler for mips64r6el architecture.
+ .
+ This is a dependency package providing the default GNU C preprocessor
+ for the mips64r6el architecture.
+
+Package: gcc-mipsisa64r6el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa64r6el-linux-gnuabi64 (= ${version:cpp}),
+  gcc-${pv:gcc}-mipsisa64r6el-linux-gnuabi64 ${reqv:gcc},
+  ${misc:Depends}
+Recommends: libc6-dev-mips64r6el-cross | libc-dev-mips64r6el-cross
+Suggests: make, manpages-dev, autoconf, automake, libtool, flex, bison, gdb-mipsisa64r6el-linux-gnuabi64, gcc-doc
+Description: GNU C compiler for the mips64r6el architecture
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This is a dependency package providing the default GNU C cross-compiler
+ for the mips64r6el architecture.
+
+Package: g++-mipsisa64r6el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa64r6el-linux-gnuabi64 (= ${version:cpp}),
+  gcc-mipsisa64r6el-linux-gnuabi64 (= ${version:cpp}),
+  g++-${pv:gpp}-mipsisa64r6el-linux-gnuabi64 ${reqv:gpp},
+  ${misc:Depends}
+Description: GNU C++ compiler for the mips64r6el architecture
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This is a dependency package providing the default GNU C++ cross-compiler
+ for the mips64r6el architecture.
+
+Package: gobjc-mipsisa64r6el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa64r6el-linux-gnuabi64 (>= ${version:cpp}),
+  gcc-mipsisa64r6el-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc-${pv:gobjc}-mipsisa64r6el-linux-gnuabi64 ${reqv:gobjc},
+  ${misc:Depends}
+Description: GNU Objective-C compiler for the mips64r6el architecture
+ This is the GNU Objective-C compiler, which compiles Objective-C on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Objective-C
+ cross-compiler for the mips64r6el architecture.
+
+Package: gobjc++-mipsisa64r6el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa64r6el-linux-gnuabi64 (>= ${version:cpp}),
+  gcc-mipsisa64r6el-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc++-${pv:gobjcxx}-mipsisa64r6el-linux-gnuabi64 ${reqv:gobjcxx},
+  ${misc:Depends}
+Recommends: g++-mipsisa64r6el-linux-gnuabi64 (>= ${version:cpp}), gobjc-mipsisa64r6el-linux-gnuabi64 (>= ${version:cpp})
+Description: GNU Objective-C++ compiler for the mips64r6el architecture
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Objective-C++
+ cross-compiler for the mips64r6el architecture.
+
+Package: gfortran-mipsisa64r6el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa64r6el-linux-gnuabi64 (= ${version:cpp}),
+  gcc-mipsisa64r6el-linux-gnuabi64 (= ${version:gcc}),
+  gfortran-${pv:gfort}-mipsisa64r6el-linux-gnuabi64 ${reqv:gfort},
+  ${misc:Depends}
+Suggests: gfortran-doc
+Description: GNU Fortran 95 compiler for the mips64r6el architecture
+ This is the GNU Fortran 95 compiler, which compiles Fortran 95 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Fortran 95
+ cross-compiler for the mips64r6el architecture.
+
+Package: gccgo-mipsisa64r6el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa64r6el-linux-gnuabi64 (>= ${version:cpp}),
+  g++-mipsisa64r6el-linux-gnuabi64 (>= ${version:gcc}),
+  gccgo-${pv:ggo}-mipsisa64r6el-linux-gnuabi64 ${reqv:ggo},
+  ${misc:Depends}
+Suggests: gccgo-doc
+Description: Go compiler (based on GCC) for the mips64r6el architecture
+ This is the GNU Go compiler, which compiles Go on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Go cross-compiler
+ for the mips64r6el architecture.
+
+Package: gdc-mipsisa64r6el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa64r6el-linux-gnuabi64 (>= ${version:cpp}),
+  gdc-${pv:gdc}-mipsisa64r6el-linux-gnuabi64 ${reqv:gdc},
+  ${misc:Depends}
+Description: GNU D compiler (based on GCC) for the mips64r6el architecture
+ This is the GNU D compiler, which compiles D on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU D cross-compiler
+ for the mips64r6el architecture.
+
+Package: gm2-mipsisa64r6el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel arm64 ppc64el
+Multi-Arch: foreign
+Depends: cpp-mipsisa64r6el-linux-gnuabi64 (>= ${version:cpp}),
+  gm2-${pv:gm2}-mipsisa64r6el-linux-gnuabi64 ${reqv:gm2},
+  ${misc:Depends}
+Description: GNU Modula-2 compiler (based on GCC) for the mips64r6el architecture
+ This is the GNU Modula-2 compiler, which compiles Modula-2 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Modula-2 cross-compiler
+ for the mips64r6el architecture.
+
+Package: gcc-multilib-mipsisa64r6el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel arm64 ppc64el
+Depends: cpp-mipsisa64r6el-linux-gnuabi64 (= ${version:cpp}),
+  gcc-mipsisa64r6el-linux-gnuabi64 (= ${version:gcc}),
+  gcc-${pv:gcc}-multilib-mipsisa64r6el-linux-gnuabi64 ${reqv:gcc},
+  ${misc:Depends}
+Recommends: libc6-dev-mips64r6el-cross | libc-dev-mips64r6el-cross
+Suggests: make, manpages-dev, autoconf, automake, libtool, flex, bison, gdb-mipsisa64r6el-linux-gnuabi64, gcc-doc
+Description: GNU C compiler for the mips64r6el architecture
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This is a dependency package providing the default GNU C cross-compiler
+ for the mips64r6el architecture.
+
+Package: g++-multilib-mipsisa64r6el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel arm64 ppc64el
+Depends: cpp-mipsisa64r6el-linux-gnuabi64 (= ${version:cpp}),
+  g++-mipsisa64r6el-linux-gnuabi64 (= ${version:gpp}),
+  gcc-multilib-mipsisa64r6el-linux-gnuabi64 (= ${version:gcc}),
+  g++-${pv:gpp}-multilib-mipsisa64r6el-linux-gnuabi64 ${reqv:gpp},
+  ${misc:Depends}
+Description: GNU C++ compiler for the mips64r6el architecture
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This is a dependency package providing the default GNU C++
+ cross-compiler for the mips64r6el architecture.
+
+Package: gobjc-multilib-mipsisa64r6el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel arm64 ppc64el
+Depends: cpp-mipsisa64r6el-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc-mipsisa64r6el-linux-gnuabi64 (>= ${version:gobjc}),
+  gcc-multilib-mipsisa64r6el-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc-${pv:gobjc}-multilib-mipsisa64r6el-linux-gnuabi64 ${reqv:gobjc},
+  ${misc:Depends}
+Description: GNU Objective-C compiler for the mips64r6el architecture
+ This is the GNU Objective-C compiler, which compiles Objective-C on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Objective-C
+ cross-compiler for the mips64r6el architecture.
+
+Package: gobjc++-multilib-mipsisa64r6el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel arm64 ppc64el
+Depends: cpp-mipsisa64r6el-linux-gnuabi64 (>= ${version:cpp}),
+  gcc-multilib-mipsisa64r6el-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc++-mipsisa64r6el-linux-gnuabi64 (>= ${version:gobjcxx}),
+  gobjc++-${pv:gobjcxx}-multilib-mipsisa64r6el-linux-gnuabi64 ${reqv:gobjcxx},
+  ${misc:Depends}
+Recommends: g++-mipsisa64r6el-linux-gnuabi64 (>= ${version:cpp}),
+  gobjc-mipsisa64r6el-linux-gnuabi64 (>= ${version:cpp})
+Description: GNU Objective-C++ compiler for the mips64r6el architecture
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Objective-C++
+ cross-compiler for the mips64r6el architecture.
+
+Package: gfortran-multilib-mipsisa64r6el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel arm64 ppc64el
+Depends: cpp-mipsisa64r6el-linux-gnuabi64 (= ${version:cpp}),
+  gcc-multilib-mipsisa64r6el-linux-gnuabi64 (= ${version:gcc}),
+  gfortran-mipsisa64r6el-linux-gnuabi64 (= ${version:gfort}),
+  gfortran-${pv:gfort}-multilib-mipsisa64r6el-linux-gnuabi64 ${reqv:gfort},
+  ${misc:Depends}
+Suggests: gfortran-doc
+Description: GNU Fortran 95 compiler for the mips64r6el architecture
+ This is the GNU Fortran 95 compiler, which compiles Fortran 95 on platforms
+ supported by the gcc compiler. It uses the gcc backend to generate optimized
+ code.
+ .
+ This is a dependency package providing the default GNU Fortran 95
+ cross-compiler for the mips64r6el architecture.
+
+Package: gccgo-multilib-mipsisa64r6el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel arm64 ppc64el
+Depends: cpp-mipsisa64r6el-linux-gnuabi64 (>= ${version:cpp}),
+  g++-multilib-mipsisa64r6el-linux-gnuabi64 (>= ${version:gcc}),
+  gccgo-mipsisa64r6el-linux-gnuabi64 (>= ${version:ggo}),
+  gccgo-${pv:ggo}-multilib-mipsisa64r6el-linux-gnuabi64 ${reqv:ggo},
+  ${misc:Depends}
+Suggests: gccgo-doc
+Description: Go compiler (based on GCC) for the mips64r6el architecture
+ This is the GNU Go compiler, which compiles Go on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU Go cross-compiler
+ for the mips64r6el architecture.
+
+Package: gdc-multilib-mipsisa64r6el-linux-gnuabi64
+Priority: optional
+Architecture: amd64 i386 x32 mips64el mipsel arm64 ppc64el
+Depends: cpp-mipsisa64r6el-linux-gnuabi64 (>= ${version:cpp}),
+  gdc-${pv:gdc}-multilib-mipsisa64r6el-linux-gnuabi64 ${reqv:gdc},
+  gdc-mipsisa64r6el-linux-gnuabi64 (>= ${version:gdc}),
+  ${misc:Depends}
+Description: GNU D compiler (based on GCC) for the mips64r6el architecture
+ This is the GNU D compiler, which compiles D on platforms supported by
+ the gcc compiler. It uses the gcc backend to generate optimized code.
+ .
+ This is a dependency package providing the default GNU D cross-compiler
+ for the mips64r6el architecture.
